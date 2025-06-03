@@ -1,0 +1,14 @@
+# infra/Dockerfile.front
+FROM node:22-slim-bookworm
+
+WORKDIR /usr/src/app
+COPY frontend/package.json frontend/package-lock.json* ./
+RUN npm install
+
+COPY frontend ./
+
+# Port Number
+EXPOSE 3000
+
+# Command to be executed
+CMD ["npm", "run", "dev"]
