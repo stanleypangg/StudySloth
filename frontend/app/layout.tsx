@@ -1,16 +1,13 @@
 import "./globals.css";
 import { Provider } from "@/components/ui/provider";
+import { ColorModeProvider } from "@/components/ui/color-mode";
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <body>
         <Provider>
-          {children}
+          <ColorModeProvider>{children}</ColorModeProvider>
         </Provider>
       </body>
     </html>
